@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>archives: 2026/9 | Hexo</title>
+  <title>归档: 2026/9 | 石猫博客</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -190,8 +190,8 @@
   </transition>
   <div class="drawer-box" :class="{'active': visible}">
     <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
-      <h3 class="drawer-box-head_title">Hexo</h3>
+      <img class="drawer-box-head_logo lazyload placeholder" src="https://oldwebarchive.org/view.php/7f681a88e574ecf34d4d6f9231a50496.png" class="lazyload placeholder" data-srcset="https://oldwebarchive.org/view.php/7f681a88e574ecf34d4d6f9231a50496.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">石猫博客</h3>
       <h5 class="drawer-box-head_desc"></h5>
     </div>
     
@@ -260,10 +260,10 @@
     <div class="blog-title" id="author-avatar">
       
         <div class="avatar">
-          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+          <img src="https://oldwebarchive.org/view.php/7f681a88e574ecf34d4d6f9231a50496.png" class="lazyload placeholder" data-srcset="https://oldwebarchive.org/view.php/7f681a88e574ecf34d4d6f9231a50496.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
         </div>
       
-      <a href="/" class="logo">Hexo</a>
+      <a href="/" class="logo">石猫博客</a>
     </div>
     <nav class="navbar">
       <ul class="menu">
@@ -279,13 +279,13 @@
         <h2>
           <span>
             <i class="fas fa-search" aria-hidden="true"></i>
-            <span class="title">Search</span>
+            <span class="title">本地搜索</span>
           </span>
           <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
         </h2>
         <form class="site-search-form">
           <input type="text"
-            placeholder="Please enter keywords"
+            placeholder="请输入关键字"
             id="local-search-input" 
             @click="getSearchFile()"
             class="st-search-input"
@@ -719,58 +719,6 @@
     
     <!-- 渲染左下角音乐播放器 -->
     
-      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
-<style>
-.aplayer .aplayer-lrc p {
-  
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px !important;
-}
-
-.aplayer .aplayer-lrc p.aplayer-lrc-current {
-  
-  font-size: 15px;
-  color: #42b983;
-}
-
-
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-  left: -66px !important;
-}
-
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-  left: 0px !important;
-}
-
-
-</style>
-<meting-js  
-  class=""
-  server="tencent"
-  type="playlist"
-  id="8062553743"
-  fixed='true'
-  autoplay='false'
-  theme='#42b983'
-  loop='all'
-  order='random'
-  preload='auto'
-  volume='0.7'
-  list-folded='true'
->
-</meting-js>
-
-<!-- <style>
-  #aplayer {
-    position: fixed;
-    left: 0;
-    bottom: 300px;
-  }
-</style> -->
-<script defer src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<script defer src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
-    
 
     <!-- 图片放大 -->
     
@@ -1095,7 +1043,7 @@
       },
       mounted() {
         const that = this;
-        var copy = 'copy';
+        var copy = '复制';
         /* code */
         var initCopyCode = function () {
           var copyHtml = '';
@@ -1169,68 +1117,52 @@
 <!-- 评论所需js -->
 
   
-        <script type="text/javascript">
-  var utteranceComment = {};
+        <script src="https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.31/twikoo.all.min.js"></script>
 
-  function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
-    if (isDark) {
-      utteranceComment.Theme = 'github-dark';
-    } else {
-      utteranceComment.Theme = 'github-light';
-    }
-
-    return document.getElementById("gitment-container");
-  }
-  comment_el = '#gitment-container';
-  load_utterance = function () {
+<script type="text/javascript">
+  comment_el = '#tcomment';
+  isLightGalleryTwikoo = false
+  load_twikoo = function () {
     if ($(comment_el).length) {
-      // 匿名函数，防止污染全局变量
-      const HEAD = check_utterance();
-
-      var utterances = document.createElement('script');
-      utterances.type = 'text/javascript';
-      utterances.async = true;
-      utterances.setAttribute('issue-term', 'pathname')
-      utterances.setAttribute('theme', utteranceComment.Theme)
-      utterances.setAttribute('repo', '')
-      utterances.crossorigin = 'anonymous';
-      utterances.src = 'https://utteranc.es/client.js';
-      // content 是要插入评论的地方
-      document.getElementById('gitment-container').appendChild(utterances);
-
+      twikoo.init({
+        envId: 'https://twikoo-minima.netlify.app/api',
+        el: '#tcomment',
+        region: '',
+        path: '',
+        onCommentLoaded: function () {
+          if (!isLightGalleryTwikoo) { // 评论图片放大
+            return;
+          }
+          var commentContents = document.getElementsByClassName('tk-content');
+          for (var i = 0; i < commentContents.length; i++) {
+            var commentItem = commentContents[i];
+            var imgEls = commentItem.getElementsByTagName('img');
+            if (imgEls.length > 0) {
+              for (var j = 0; j < imgEls.length; j++) {
+                var imgEl = imgEls[j];
+                var aEl = document.createElement('a');
+                aEl.setAttribute('class', 'tk-lg-link');
+                aEl.setAttribute('href', imgEl.getAttribute('src'));
+                aEl.setAttribute('data-src', imgEl.getAttribute('src'));
+                aEl.appendChild(imgEl.cloneNode(false));
+                imgEl.parentNode.insertBefore(aEl, imgEl.nextSibling);
+                imgEl.remove();
+              }
+              lightGallery(commentItem, {
+                selector: '.tk-lg-link',
+                share: false
+              });
+            }
+          }
+        }
+      })
     }
   }
-
-  function dark_utterance() {
-    const HEAD = check_utterance();
-    if (!HEAD) return;
-    const message = {
-      type: 'set-theme',
-      theme: utteranceComment.Theme
-    };
-    const utteranceIframe = document.querySelector('iframe');
-    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
-  }
-
-  $(document).ready(load_utterance);
+  $(document).ready(load_twikoo);
   document.addEventListener('pjax:complete', function () {
-    load_utterance();
+    load_twikoo();
   });
-
-  $('.dark').click(function () {
-    setTimeout(() => {
-      dark_utterance();
-    });
-  })
-
 </script>
-
-<style>
-  .utterances {
-    max-width: inherit !important;
-  }
-</style>
       
 
 
